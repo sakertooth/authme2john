@@ -6,7 +6,6 @@ def convert(password):
     password = password.strip('\'')
     if password.startswith("$SHA$") is False:
         print("Invalid Token: Does not begin with $SHA$")
-        print(f"Hash => {password}")
         exit(1)
 
     password = password[5:]
@@ -14,6 +13,9 @@ def convert(password):
     
     if len(salthash) != 2:
         print("Invalid Token: Could not get salt and/or hash correctly.")
+        exit(1)
+    elif len(salthash[0]) != 16 or len(salthash[1]) != 64:
+        print("Invalid Token: Bad salt/hash lengths.")
         exit(1)
 
     return f'{salthash[1].strip()}${salthash[0]}'
