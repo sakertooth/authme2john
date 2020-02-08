@@ -3,6 +3,7 @@ import sys
 import os
 
 def convert(password):
+    password = password.strip('\'')
     if password.startswith("$SHA$") is False:
         print("Invalid Token: Does not begin with $SHA$")
         print(f"Hash => {password}")
