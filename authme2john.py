@@ -20,7 +20,7 @@ def convert(password):
 
 if len(sys.argv) < 2:
     print("Usage: authme2john.py <single/file> [OUTPUT]")
-    print("(Does the file exist, or is the hash single-quoted?)")
+    print("(Does the file exist, or is the hash not single-quoted?)")
     exit(1)
 
 password = sys.argv[1]
